@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vuejs: #49e659; /*ekstra eklemek istediğim renkler*/
+}

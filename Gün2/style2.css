@@ -1,0 +1,89 @@
+:root {
+    --brand-blue: #003fa8;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.circle-badge {
+    width: 110px;
+    height: 110px;
+    background-color: var(--brand-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px rgba(0, 63, 168, 0.25);
+}
+
+.currency-icon {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    max-width: 160px;
+}
+
+/* ============ MASAÜSTÜ: MUTLAK KONUMLANDIRMA ============
+   Referans görsel piksel piksel analiz edilip her dairenin
+   MERKEZ noktası (--x, --y) yüzde olarak hesaplandı. Kapsayıcının
+   en-boy oranı (546:561) görseldekiyle birebir aynı, bu yüzden
+   ekran boyutu değişse bile oranlar korunuyor. */
+@media (min-width: 992px) {
+    .circle-grid {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        aspect-ratio: 546 / 561;
+        margin: 0 auto;
+    }
+
+    .circle-grid .badge-item {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: 0;
+        height: 0;
+    }
+
+    .circle-grid .circle-badge {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate(-50%, -50%);
+        margin-bottom: 0;
+    }
+
+    .circle-grid .badge-text {
+        position: absolute;
+        left: 0;
+        top: 63px; /* daire yarıçapı (55px) + orijinal 8px boşluk */
+        transform: translateX(-50%);
+        width: 160px;
+        white-space: normal;
+    }
+}
+
+/* ============ MOBİL: 2 SÜTUNLU GRID ============ */
+@media (max-width: 991px) {
+    .circle-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 24px;
+        column-gap: 12px;
+        justify-items: center;
+    }
+}
