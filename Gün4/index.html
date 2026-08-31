@@ -1,12 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>helloo</h1>
-    <script src="index.js"></script>
-</body>
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expertise</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <main class="max-w-6xl mx-auto px-6 py-12">
+
+      <!-- Tab bölümü -->
+      <div class="flex justify-center gap-8 border-b border-gray-200">
+        <button type="button" class="tab-btn relative w-fit pb-4" data-tab="expertise">
+          <span class="tab-label text-2xl text-gray-400">Expertise</span>
+          <div class="tab-underline absolute -bottom-px left-0 right-0 h-1 rounded-full bg-linear-to-r from-blue-400 to-indigo-600 hidden"></div>
+        </button>
+        <button type="button" class="tab-btn relative w-fit pb-4" data-tab="how-we-work">
+          <span class="tab-label text-2xl text-gray-400">How We Work</span>
+          <div class="tab-underline absolute -bottom-px left-0 right-0 h-1 rounded-full bg-linear-to-r from-blue-400 to-indigo-600 hidden"></div>
+        </button>
+      </div>
+
+      <!-- Expertise kartları -->
+      <div id="content-expertise" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-pen text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Product Design</h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Creating a visual representation of your brand that can withstand
+            the test of time, in both the physical and digital realm using
+            state-of-the-art techniques and tools.
+          </p>
+        </div>
+
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-cpu text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">AI And Data Science</h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Comprehensive data science and AI services, to help clients
+            determine their AI-goals and squeeze the most ROI and, of course,
+            take care of models' implementation and deployment.
+          </p>
+        </div>
+
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-database text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">
+              Big Data/Data Warehousing Systems
+            </h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Our modern tech-stack allows us to interpret, categorize and sort
+            all your business's data, allowing clients to generate
+            business-critical insights.
+          </p>
+        </div>
+      </div>
+
+      <!-- how we work kartları -->
+      <div id="content-how-we-work" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-search text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Discover</h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat commodi excepturi delectus fuga. Nobis tenetur exercitationem, laboriosam eum quaerat reiciendis.
+          </p>
+        </div>
+
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-tools text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Build</h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, quam quisquam numquam aliquam velit explicabo autem perspiciatis expedita odio dolorum?
+          </p>
+        </div>
+
+        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
+          <div class="flex items-center gap-4 bg-gray-100 p-5">
+            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
+              <i class="bi bi-rocket-takeoff text-white text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Launch</h3>
+          </div>
+          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat commodi excepturi delectus fuga. Nobis tenetur exercitationem, laboriosam eum quaerat reiciendis.
+          </p>
+        </div>
+      </div>
+
+    </main>
+
+    <script>
+      function switchTab(tabName) {
+        const buttons = document.querySelectorAll(".tab-btn");
+        const contents = document.querySelectorAll('[id^="content-"]');
+
+        buttons.forEach((btn) => {
+          const isActive = btn.dataset.tab === tabName;
+          const label = btn.querySelector(".tab-label");
+          const underline = btn.querySelector(".tab-underline");
+
+          label.classList.toggle("font-bold", isActive);
+          label.classList.toggle("text-gray-900", isActive);
+          label.classList.toggle("text-gray-400", !isActive);
+          underline.classList.toggle("hidden", !isActive);
+        });
+
+        contents.forEach((section) => {
+          const isMatch = section.id === "content-" + tabName;
+          section.classList.toggle("hidden", !isMatch);
+        });
+      }
+
+      document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+      });
+
+      switchTab("expertise"); // sayfa ilk açıldığında varsayılan aktif tab
+    </script>
+  </body>
 </html>
