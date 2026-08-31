@@ -25,6 +25,7 @@
 
       <!-- Expertise kartları -->
       <div id="content-expertise" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+
         <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
           <div class="flex items-center gap-4 bg-gray-100 p-5">
             <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
@@ -70,8 +71,9 @@
         </div>
       </div>
 
-      <!-- how we work kartları -->
+      <!-- how we work kartları hidden ile gelir-->
       <div id="content-how-we-work" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+
         <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
           <div class="flex items-center gap-4 bg-gray-100 p-5">
             <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
@@ -113,11 +115,11 @@
 
     <script>
       function switchTab(tabName) {
-        const buttons = document.querySelectorAll(".tab-btn");
-        const contents = document.querySelectorAll('[id^="content-"]');
+        const buttons = document.querySelectorAll(".tab-btn");// tab butonlarını seçiyoruz
+        const contents = document.querySelectorAll('[id^="content-"]');// id si content- ile başlayan tüm elementleri seçiyoruz
 
-        buttons.forEach((btn) => {
-          const isActive = btn.dataset.tab === tabName;
+        buttons.forEach((btn) => { // her bir buton için
+          const isActive = btn.dataset.tab === tabName; // btn.dataset.tab ile butonun data-tab değerini alıyoruz ve tabName ile karşılaştırıyoruz
           const label = btn.querySelector(".tab-label");
           const underline = btn.querySelector(".tab-underline");
 
@@ -128,14 +130,14 @@
         });
 
         contents.forEach((section) => {
-          const isMatch = section.id === "content-" + tabName;
+          const isMatch = section.id === "content-" + tabName; // id si content- + tabName ile eşleşiyorsa göster, değilse gizle
           section.classList.toggle("hidden", !isMatch);
         });
       }
 
       document.querySelectorAll(".tab-btn").forEach((btn) => {
-        btn.addEventListener("click", () => switchTab(btn.dataset.tab));
-      });
+        btn.addEventListener("click", () => switchTab(btn.dataset.tab));//btn.dataset.tab ile expertise veya how-we-work değerini alıyoruz
+      }); // tab butonlarına tıklama olayını ekliyoruz ve tanımlanan tabName ile switchTab fonksiyonunu çağırıyoruz
 
       switchTab("expertise"); // sayfa ilk açıldığında varsayılan aktif tab
     </script>
