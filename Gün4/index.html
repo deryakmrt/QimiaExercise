@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gün 4</title>
+    <title>Gün 5</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+    <script src="index.js" defer></script>
+    <script src="components.js" defer></script>
   </head>
 
   <body>
@@ -23,124 +25,10 @@
         </button>
       </div>
 
-      <!-- Expertise kartları -->
-      <div id="content-expertise" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+      <!-- Kartların grid yapısı -->
+      <div id="content-expertise" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"></div>
 
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-pen text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">Product Design</h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Creating a visual representation of your brand that can withstand
-            the test of time, in both the physical and digital realm using
-            state-of-the-art techniques and tools.
-          </p>
-        </div>
-
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-cpu text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">AI And Data Science</h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Comprehensive data science and AI services, to help clients
-            determine their AI-goals and squeeze the most ROI and, of course,
-            take care of models' implementation and deployment.
-          </p>
-        </div>
-
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-database text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">
-              Big Data/Data Warehousing Systems
-            </h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Our modern tech-stack allows us to interpret, categorize and sort
-            all your business's data, allowing clients to generate
-            business-critical insights.
-          </p>
-        </div>
-      </div>
-
-      <!-- how we work kartları hidden ile gelir-->
-      <div id="content-how-we-work" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-search text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">Discover</h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat commodi excepturi delectus fuga. Nobis tenetur exercitationem, laboriosam eum quaerat reiciendis.
-          </p>
-        </div>
-
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-tools text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">Build</h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, quam quisquam numquam aliquam velit explicabo autem perspiciatis expedita odio dolorum?
-          </p>
-        </div>
-
-        <div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-          <div class="flex items-center gap-4 bg-gray-100 p-5">
-            <div class="w-14 h-14 shrink-0 rounded-sm bg-linear-to-br from-amber-300 to-amber-500 flex items-center justify-center">
-              <i class="bi bi-rocket-takeoff text-white text-2xl"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900">Launch</h3>
-          </div>
-          <p class="p-5 text-sm text-gray-600 leading-relaxed text-center">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut dolorum porro quisquam. Omnis debitis non nulla commodi saepe expedita odit.
-          </p>
-        </div>
-      </div>
-
+      <div id="content-how-we-work" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"></div>
     </main>
-
-    <script>
-      function switchTab(tabName) {
-        const buttons = document.querySelectorAll(".tab-btn");// tab butonlarını seçiyoruz
-        const contents = document.querySelectorAll('[id^="content-"]');// id si content- ile başlayan tüm elementleri seçiyoruz
-
-        buttons.forEach((btn) => { // her bir buton için
-          const isActive = btn.dataset.tab === tabName; // btn.dataset.tab ile butonun data-tab değerini alıyoruz ve tabName ile karşılaştırıyoruz
-          const label = btn.querySelector(".tab-label");
-          const underline = btn.querySelector(".tab-underline");
-
-          label.classList.toggle("font-bold", isActive);
-          label.classList.toggle("text-gray-900", isActive);
-          label.classList.toggle("text-gray-400", !isActive);
-          underline.classList.toggle("hidden", !isActive);
-        });
-
-        contents.forEach((section) => {
-          const isMatch = section.id === "content-" + tabName; // id si content- + tabName ile eşleşiyorsa göster, değilse gizle
-          section.classList.toggle("hidden", !isMatch);
-        });
-      }
-      //deneme
-
-      document.querySelectorAll(".tab-btn").forEach((btn) => {
-        btn.addEventListener("click", () => switchTab(btn.dataset.tab));//btn.dataset.tab ile expertise veya how-we-work değerini alıyoruz
-      }); // tab butonlarına tıklama olayını ekliyoruz ve tanımlanan tabName ile switchTab fonksiyonunu çağırıyoruz
-
-      switchTab("expertise"); // sayfa ilk açıldığında varsayılan aktif tab
-    </script>
   </body>
 </html>
