@@ -22,14 +22,14 @@ const expertiseCards = [
         iconClass: "bi-pen"
     },
     {
-        title:"Product Design",
+        title:"AI and Data Science",
         description: "Creating a visual representation of your brand that can withstand the test of time, in both the physical and digital realm using state-of-the-art techniques and tools.",
-        iconClass: "bi-pen"
+        iconClass: "bi-database"
     },
     {
-        title:"Product Design",
+        title:"Big Data/ Data Warehousing Systems",
         description: "Creating a visual representation of your brand that can withstand the test of time, in both the physical and digital realm using state-of-the-art techniques and tools.",
-        iconClass: "bi-pen"
+        iconClass: "bi-house"
     }
 ]
 
@@ -40,14 +40,14 @@ const howWeWorkCards = [
         iconClass: "bi-pen"
     },
     {
-        title:"Product Design",
+        title:"Product Design2",
         description:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat commodi excepturi delectus fuga. Nobis tenetur exercitationem, laboriosam eum quaerat reiciendis.",
-        iconClass: "bi-pen"
+        iconClass: "bi-database"
     },
     {
-        title:"Product Design",
+        title:"Product Design3",
         description:  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat commodi excepturi delectus fuga. Nobis tenetur exercitationem, laboriosam eum quaerat reiciendis.",
-        iconClass: "bi-pen"
+        iconClass: "bi-house"
     }
 ]
 
@@ -55,7 +55,9 @@ function renderCards(containerId, cardsData)
 {
     const container = document.getElementById(containerId); // id ye göre bulur seçer
     container.innerHTML = cardsData.map(card => createCard(card.title, card.description, card.iconClass)).join('');
-}  //oluşturulan html metnini container içine yazar   //bir array başlatır                                //joinle araya bir şey eklemeden birleştir
+}  //oluşturulan html metnini container içine yazar   //bir array başlatır                  //joinle araya bir şey eklemeden birleştir
 
-renderCards('content-expertise', expertiseCards);
-renderCards('content-how-we-work', howWeWorkCards);
+document.addEventListener("DOMContentLoaded", () => {
+    renderCards('content-expertise', expertiseCards);
+    renderCards('content-how-we-work', howWeWorkCards);
+});

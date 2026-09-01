@@ -18,9 +18,13 @@
           section.classList.toggle("hidden", !isMatch);
         });
       }
-
-      document.querySelectorAll(".tab-btn").forEach((btn) => {
+      document.addEventListener("DOMContentLoaded", ()=> {
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
         btn.addEventListener("click", () => switchTab(btn.dataset.tab));//btn.dataset.tab ile expertise veya how-we-work değerini alıyoruz
       }); // tab butonlarına tıklama olayını ekliyoruz ve tanımlanan tabName ile switchTab fonksiyonunu çağırıyoruz
 
       switchTab("expertise"); // sayfa ilk açıldığında varsayılan aktif tab
+
+      });
+
+      
