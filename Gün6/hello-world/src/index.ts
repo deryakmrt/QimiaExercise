@@ -1,34 +1,55 @@
 const loginForm = document.querySelector<HTMLFormElement>('#login-form');
-const usernameInput = document.querySelector<HTMLInputElement>('#username');
+const emailInput = document.querySelector<HTMLInputElement>('#email');
 const passwordInput = document.querySelector<HTMLInputElement>('#password');
-const usernameError = document.querySelector<HTMLParagraphElement>('#username-error');
+const emailError = document.querySelector<HTMLParagraphElement>('#email-error');
 const passwordError = document.querySelector<HTMLParagraphElement>('#password-error');
+const loginMessage = document.querySelector<HTMLParagraphElement>('#login-message');
+const mockUser = {
+	email: 'user@qimia.com',
+	password: 'Qimia!80',
+};
 
-if (loginForm && usernameInput && passwordInput && usernameError && passwordError) {
-	loginForm.addEventListener('submit', (event) => {
-		event.preventDefault();
+if (loginForm && emailInput && passwordInput && emailError && passwordError && loginMessage) {// tüm elementlerin varlığını kontrol et
+	loginForm.addEventListener('submit', (event) => {// form submit edildiğinde çalışacak fonksiyon
+		event.preventDefault();//sayfa yenilenmesini engellemek için preventDefault() kullanılır
 
-		const username = usernameInput.value.trim();
-		const password = passwordInput.value;
-		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		const phonePattern = /^\+?[\d\s()-]{7,}$/;
+		const email = emailInput.value.trim();//trim() ile baştaki ve sondaki boşluklar kaldırılır
+		const password = passwordInput.value;//parola boşlukları kaldırılmaz çünkü parola boşluk içerebilir
+		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;//e-posta formatını kontrol etmek için regex patterni
+		const passwordRules = [
+			{ pattern: /.{8,}/, message: 'Parola en az 8 karakter olmalıdır.' },
+			{ pattern: /[A-Z]/, message: 'Parola büyük harf içermelidir.' },
+			{ pattern: /[a-z]/, message: 'Parola küçük harf içermelidir.' },
+			{ pattern: /\d/, message: 'Parola rakam içermelidir.' },
+			{ pattern: /[^A-Za-z0-9]/, message: 'Parola özel karakter içermelidir.' },
+		];
 		let isValid = true;
 
-		usernameError.textContent = '';
+		emailError.textContent = '';//hata mesajlarını temizlemek için
 		passwordError.textContent = '';
+		loginMessage.textContent = '';
+		loginMessage.className = 'text-center text-sm min-h-5 mt-4';//loginMessage'ın className'ini temizlemek için
 
-		if (!emailPattern.test(username) && !phonePattern.test(username)) {
-			usernameError.textContent = 'Enter a valid e-mail address or phone number.';
+		if (!emailPattern.test(email)) {//e-posta formatını kontrol
+			emailError.textContent = 'Geçerli bir e-posta adresi giriniz.';
 			isValid = false;
 		}
 
-		if (password.length < 8) {
-			passwordError.textContent = 'Password must be at least 8 characters.';
+		const failedPasswordRule = passwordRules.find((rule) => !rule.pattern.test(password));//parola kurallarını kontrol etmek için find() kullanılır, ilk başarısız kural bulunur
+		if (failedPasswordRule) {
+			passwordError.textContent = failedPasswordRule.message;
 			isValid = false;
 		}
 
 		if (isValid) {
-			loginForm.submit();
+			if (email !== mockUser.email || password !== mockUser.password) {
+				loginMessage.textContent = 'Geçersiz e-posta veya şifre.';
+				loginMessage.classList.add('text-red-600');
+				return;
+			}
+
+			loginMessage.textContent = 'Giriş başarılı✅';
+			loginMessage.classList.add('text-green-700');
 		}
 	});
 }
