@@ -1,7 +1,7 @@
 const dersListesi = document.getElementById("ders-listesi");
 const secilenDersler = document.getElementById("secilen-dersler");
 const secilenDersSayisi = document.getElementById("secilen-ders-sayisi");
-const tumDersSayisi = document.getElementById("tum-ders-sayisi"); // HTML'de span'e bu id'yi vereceğiz
+const tumDersSayisi = document.getElementById("tum-ders-sayisi");
 const ogretmenMesaji = document.getElementById("ogretmen-mesaji");
 const dersKarti = document.getElementById("ders-karti") as HTMLTemplateElement | null;
 
@@ -14,9 +14,9 @@ class Ogretmen {
 class Ders {
 	constructor(public id: number, public ad: string, public ogretmen: Ogretmen) {}
 }
-// Tüm ders + seçili ders state'ini ve bu state'i değiştiren davranışları
-// tek bir yerde topluyoruz. Dışarıdan kimse secilmisDersler dizisine
-// doğrudan erişip değiştiremiyor — sadece bu sınıfın metodları üzerinden.
+/* Tüm ders + seçili ders state'ini ve bu state'i değiştiren davranışları
+ tek bir yerde topluyoruz. Dışarıdan kimse secilmisDersler dizisine
+ doğrudan erişip değiştiremiyor — sadece bu sınıfın metodları üzerinden. */
 class DersYoneticisi {
 	private secilmisDersler: Ders[];
 
@@ -33,12 +33,12 @@ class DersYoneticisi {
 	}
 
 	dersSecilmiMi(id: number): boolean {
-		return this.secilmisDersler.some((ders) => ders.id === id);
+		return this.secilmisDersler.some((ders) => ders.id === id);//en az bir öğe koşulu karşılıyorsa true döndürür-some
 	}
 
 	dersEkle(ders: Ders): void {
 		if (this.dersSecilmiMi(ders.id)) return;
-		this.secilmisDersler = [...this.secilmisDersler, ders];
+		this.secilmisDersler = [...this.secilmisDersler, ders];// ...() yeni dizi oluşturup ekleme yapar, push ile doğrudan değiştirmez. Bu, referansın değişmesini sağlar ve render fonksiyonunun yeniden çalışmasını tetikler.
 	}
 
 	dersCikar(id: number): void {
@@ -57,7 +57,7 @@ const dersler: Ders[] = [
 const dersYoneticisi = new DersYoneticisi(dersler, 2); // Başlangıçta ilk iki ders seçili
 
 function metinAta(el: Element | null, metin: string): void {
-	if (el) el.textContent = metin;
+	if (el) el.textContent/*hatayı engelle*/ = metin;
 }
 
 function render(): void {
@@ -68,13 +68,14 @@ function render(): void {
 
 	dersListesi.replaceChildren(...tumu.map((ders) => dersKartiOlustur(dersKarti, ders, false)));
 	secilenDersler.replaceChildren(...secilmisler.map((ders) => dersKartiOlustur(dersKarti, ders, true)));
-
+	//replaceChildren ile önceki öğeleri kaldırıp yenilerini ekliyoruz. Bu, render fonksiyonunun her çağrıldığında DOM'u temiz ve güncel tutmasını sağlar.
 	metinAta(secilenDersSayisi, String(secilmisler.length));
 	metinAta(tumDersSayisi, `${tumu.length} ders`);
 }
 
 function dersKartiOlustur(template: HTMLTemplateElement, ders: Ders, secilenListe: boolean): DocumentFragment {
-	const card = template.content.cloneNode(true) as DocumentFragment;
+	const card = template.content.cloneNode(true) as DocumentFragment;//template içeriğini klonlayarak yeni bir DocumentFragment oluşturuyoruz. Bu, şablonun tekrar kullanılmasını sağlar ve DOM'a eklenmeden önce üzerinde değişiklik yapmamıza olanak tanır.
+	//5 kart 5 kez çağrılır ve her seferinde yeni bir DocumentFragment oluşturulur. Bu, her kartın bağımsız olmasını sağlar ve birbirlerini etkilemezler.
 	const article = card.querySelector("article");
 	const dersAdi = card.querySelector(".ders-adi");
 	const dersOgretmeni = card.querySelector(".ders-ogretmeni");
