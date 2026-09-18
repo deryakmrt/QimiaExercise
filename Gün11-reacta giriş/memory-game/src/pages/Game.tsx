@@ -46,7 +46,7 @@ function Game({ difficulty, onBackToHome }: GameProps) {
 	// yeniden oyun başlatma için tur sayacı.
 	const [gameRound, setGameRound] = useState(0)
 
-	// iki kart açıksa eşleşme kontrolü yapılıyor demektir.
+	// iki kart açıksa eşleşme kontrolü yapılıyor
 	const isChecking = selectedCardIds.length === 2
 
 	// bütün kartlar eşlenmişse oyun biter
