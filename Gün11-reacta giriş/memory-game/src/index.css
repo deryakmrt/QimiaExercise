@@ -1,3 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+	font-family: Georgia, 'Times New Roman', serif;
+	color: #172033;
+	background: #f5f1e8;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	background: radial-gradient(circle at top right, #fff5cf 0, #f5f1e8 40%, #dce8e3 100%);
+}
+
+button { font: inherit; }
+
+.card {
+	position: relative;
+	transform-style: preserve-3d;
+	border: 0;
+	cursor: pointer;
+	background: transparent;
+}
+
+.card:disabled { cursor: default; }
+
+.card__face {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.75rem;
+	backface-visibility: hidden;
+	transition: transform 300ms ease;
+	font-size: clamp(1.75rem, 5vw, 3.25rem);
+}
+
+.card__face--front { transform: rotateY(180deg); background: #fffdf8; }
+.card__face--back { background: #1d4d4f; color: #f8c85c; }
+.card--flipped .card__face--front { transform: rotateY(0deg); }
+.card--flipped .card__face--back { transform: rotateY(-180deg); }
